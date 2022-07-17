@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <alias name="student" alias="goodStudent"/>
+
+    <bean id="student" class="com.xinqing.entity.Student">
+        <property name="name" value="康馨朵朵"/>
+        <property name="school" value="双流中学"/>
+    </bean>
+
+    <bean id="teacher" class="com.xinqing.entity.Teacher">
+        <property name="age" value="18"/>
+        <property name="name" value="肖骏"/>
+        <!--引用Setter注入-->
+        <property name="student" ref="student"/>
+        <!--数组Setter注入-->
+        <property name="book">
+            <array>
+                <value>三国演义</value>
+                <value>西游记</value>
+                <value>三国演义</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+        <!--List的Setter注入-->
+        <property name="hobby">
+            <list>
+                <value></value>
+            </list>
+        </property>
+    </bean>
+
+    <!--构造器方式注入-->
+
+
+    <!--Setter方式注入-->
+
+
+    <!--扩展方式注入-->
+
+</beans>

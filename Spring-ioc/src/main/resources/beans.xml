@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="bean.xml"/>
+
+    <alias name="student" alias="goodStudent"/>
+
+    <bean id="student" class="com.xinqing.entity.Student">
+        <property name="name" value="康馨朵朵"/>
+        <property name="school" value="双流中学"/>
+    </bean>
+
+    <bean id="teacher" class="com.xinqing.entity.Teacher">
+        <property name="age" value="18"/>
+        <property name="name" value="肖骏"/>
+        <property name="student" ref="student"/>
+    </bean>
+
+</beans>
