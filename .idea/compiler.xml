@@ -8,7 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring-di" />
         <module name="Spring-ioc" />
+        <module name="Spring-annotation" />
+        <module name="Spring-autowired" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="autowired" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

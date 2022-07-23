@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <bean id="cat" class="com.xinqing.entity.Cat"></bean>
+    <bean id="dog" class="com.xinqing.entity.Dog"></bean>
+    <!--  byType自动注入，必须保证容器中该类型的bean只有一个，不然会报错  -->
+    <bean id="people" class="com.xinqing.entity.People" autowire="byType" scope="prototype"/>
+    <!--  byName自动注入  -->
+    <bean id="people2" class="com.xinqing.entity.People" autowire="byName"/>
+
+    <context:annotation-config/>
+    <bean id="people4" class="com.xinqing.entity.People"/>
+
+
+
+</beans>

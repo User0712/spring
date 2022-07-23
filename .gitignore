@@ -1,3 +1,6 @@
 # Project exclude paths
 /Spring-di/target/
 /Spring-ioc/target/
+/Spring-autowired/target/
+/Spring-annotation/target/
+/.idea

@@ -11,6 +11,8 @@
     <modules>
         <module>Spring-ioc</module>
         <module>Spring-di</module>
+        <module>Spring-autowired</module>
+        <module>Spring-annotation</module>
     </modules>
 
     <dependencies>
