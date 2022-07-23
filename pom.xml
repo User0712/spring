@@ -13,6 +13,7 @@
         <module>Spring-di</module>
         <module>Spring-autowired</module>
         <module>Spring-annotation</module>
+        <module>Spring-aop</module>
     </modules>
 
     <dependencies>

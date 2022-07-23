@@ -14,4 +14,5 @@
   ~~~
   1.@AutoWired 通过byType方式实现去寻找对应Class的bean
   2.@Resource  先通过byName方式实现，如果根据找不到对应id的bean，再通过byType的方式去寻找对应Class的bean
+  3.@Nullable 使用标记在某个字段上，说明这个字段可以为null
   ~~~
