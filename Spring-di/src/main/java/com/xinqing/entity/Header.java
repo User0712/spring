@@ -8,6 +8,13 @@ package com.xinqing.entity;
 public class Header {
     private int age;
     private String school;
+    public Header() {
+    }
+    public Header(int age, String school) {
+        this.age = age;
+        this.school = school;
+    }
+
 
     public int getAge() {
         return age;
@@ -24,6 +31,7 @@ public class Header {
     public void setSchool(String school) {
         this.school = school;
     }
+
 
 
     @Override

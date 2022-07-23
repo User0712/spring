@@ -17,6 +17,14 @@ public class Student {
                 '}';
     }
 
+    public Student() {
+    }
+
+    public Student(String name, String school) {
+        this.name = name;
+        this.school = school;
+    }
+
     public String getName() {
         return name;
     }

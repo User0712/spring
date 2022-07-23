@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class iocTest {
     public static void main(String[] args) {
-        ApplicationContext Context = new ClassPathXmlApplicationContext("beans.xml");
+        ApplicationContext Context = new ClassPathXmlApplicationContext("spring-config.xml");
         Teacher teacher = Context.getBean("teacher", Teacher.class);
         Header header = Context.getBean("header", Header.class);
         Student goodStudent = Context.getBean("goodStudent", Student.class);

@@ -1,9 +1,6 @@
 package com.xinqing.entity;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author 心晴_xiao
@@ -21,15 +18,6 @@ public class Teacher {
     private Properties info;
     private String wife;
 
-
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", student=" + student.toString() +
-                '}';
-    }
 
     public String getName() {
         return name;
@@ -101,5 +89,20 @@ public class Teacher {
 
     public void setWife(String wife) {
         this.wife = wife;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", student=" + student +
+                ", book=" + Arrays.toString(book) +
+                ", hobby=" + hobby +
+                ", game=" + game +
+                ", family=" + family +
+                ", info=" + info +
+                ", wife='" + wife + '\'' +
+                '}';
     }
 }

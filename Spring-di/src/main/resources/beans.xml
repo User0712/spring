@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+    <!--p命名空间注入-->
+    <bean id="header" class="com.xinqing.entity.Header" p:age="50" p:school="四川大学"/>
+    <!--c命名空间注入-->
+    <bean id="header2" class="com.xinqing.entity.Header" c:age="55" c:school="电子科技大学"/>
+    <!--别名-->
     <alias name="student" alias="goodStudent"/>
-
+    <!--setter注入-->
     <bean id="student" class="com.xinqing.entity.Student">
         <property name="name" value="康馨朵朵"/>
         <property name="school" value="双流中学"/>
+    </bean>
+    <!--构造器参数下标注入-->
+    <bean id="student2" class="com.xinqing.entity.Student">
+        <constructor-arg index="0" value="1234"/>
+        <constructor-arg index="1" value="1234"/>
+    </bean>
+    <!--构造器类型注入-->
+    <bean id="header3" class="com.xinqing.entity.Header">
+        <constructor-arg type="int" value="50"/>
+        <constructor-arg type="java.lang.String" value="成都信息工程大学"/>
     </bean>
 
     <bean id="teacher" class="com.xinqing.entity.Teacher">
@@ -29,17 +46,37 @@
         <!--List的Setter注入-->
         <property name="hobby">
             <list>
-                <value></value>
+                <value>打游戏</value>
+                <value>听音乐</value>
             </list>
+        </property>
+          <!-- map的Setter注入-->
+        <property name="game">
+            <map>
+                <entry key="王者荣耀" value="心晴_xiao"></entry>
+                <entry key="英雄联盟" value="心晴_xiao"></entry>
+            </map>
+        </property>
+        <!-- set的Setter注入-->
+        <property name="family">
+            <set>
+                <value>妈妈</value>
+                <value>弟弟</value>
+            </set>
+        </property>
+        <!-- null的Setter注入-->
+        <property name="wife">
+            <null/>
+        </property>
+        <!-- properties的Setter注入-->
+        <property name="info">
+            <props>
+                <prop key="driver">mysql.jc.jdbc</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
         </property>
     </bean>
 
-    <!--构造器方式注入-->
-
-
-    <!--Setter方式注入-->
-
-
-    <!--扩展方式注入-->
 
 </beans>
