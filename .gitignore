@@ -3,4 +3,6 @@
 /Spring-ioc/target/
 /Spring-autowired/target/
 /Spring-annotation/target/
+/Spring-aop/target/
+/Spring-mybatis/target/
 /.idea

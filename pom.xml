@@ -14,6 +14,7 @@
         <module>Spring-autowired</module>
         <module>Spring-annotation</module>
         <module>Spring-aop</module>
+        <module>Spring-mybatis</module>
     </modules>
 
     <dependencies>
@@ -28,6 +29,17 @@
             <version>4.13.2</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 
 
 </project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userService" class="com.xinqing.service.UserServiceImp"/>
+    <bean id="beforeLog" class="com.xinqing.log.BeforeLog"/>
+    <bean id="afterLog" class="com.xinqing.log.AfterLog"/>
+
+
+    <bean id="annotationAspcet" class="com.xinqing.diy.AnnotationAspect"/>
+    <!--注解驱动实现-->
+    <aop:aspectj-autoproxy/>
+
+<!--    &lt;!&ndash;AOP相关配置方式1&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;切点配置&ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.xinqing.service.*.*(..))"/>-->
+<!--        &lt;!&ndash;切点增强的方法配置 将某个方法配置在某个切点处&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="beforeLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+
+<!--    自定义切面类-->
+<!--    <bean id="myAdvice" class="com.xinqing.diy.MyAdvice"/>-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;引用配置切面类&ndash;&gt;-->
+<!--        <aop:aspect ref="myAdvice">-->
+<!--            &lt;!&ndash;配置切点，用一个表达式匹配到方法&ndash;&gt;-->
+<!--            <aop:pointcut id="point" expression="execution(* com.xinqing.service.*.*(..))"/>-->
+<!--            &lt;!&ndash;将切面的方法配置到切点的方法前&ndash;&gt;-->
+<!--            <aop:before method="beofre" pointcut-ref="point"/>-->
+<!--            &lt;!&ndash;将切面的方法配置到切点的方法后&ndash;&gt;-->
+<!--            <aop:after method="after" pointcut-ref="point"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+</beans>

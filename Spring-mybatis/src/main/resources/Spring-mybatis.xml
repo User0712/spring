@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring数据源替换mybatis数据源-->
+    <!--mybatis的第一要素：数据源的bean注入-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mockentry?useUnicode=true&amp;characterEncoding=UTF-8&amp;userSSL=false&amp;serverTimezone=UTC"/>
+    </bean>
+
+    <!--mybatis的第二要素：sqlSession工厂类的bean，依赖数据源的bean-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--绑定mybatis配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--可以去掉这个配置-->
+        <property name="mapperLocations" value="classpath:com/xinqing/mapper/*.xml"/>
+    </bean>
+    <!--mybatis的第三要素：sqlSession类的bean，依赖sqlSession工厂类的bean-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <!--只能使用构造器注入，因为没有setter方法-->
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+    <!--mybatis的第四要素：接口实现类的bean，依赖sqlSession类的bean-->
+    <bean id="commandMapper" class="com.xinqing.mapper.CommandMapperImp">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
+    <!--第二种方式 继承SqlSessionDaoSupport类，实现Mapper接口类-->
+    <!--mybatis的第三要素和第四要素进行整合：接口实现类的bean，依赖sqlSession工厂类的bean-->
+    <bean id="commandMapper2" class="com.xinqing.mapper.CommandMapperImp2">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+</beans>

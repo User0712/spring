@@ -6,15 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Spring-di" />
-        <module name="Spring-aop" />
-        <module name="Spring-ioc" />
-        <module name="Spring-annotation" />
         <module name="Spring-autowired" />
+        <module name="Spring-annotation" />
+        <module name="Spring-aop" />
+        <module name="Spring-di" />
+        <module name="Spring-mybatis" />
+        <module name="Spring-ioc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="autowired" target="1.5" />
+      <module name="Sping-mbaties" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
